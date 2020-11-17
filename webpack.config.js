@@ -12,14 +12,26 @@ module.exports={
     module:{
         rules:[
             {
-                test:/\.jpe?g$/,
-                use:[
-                    {loader:"file-loader"}
-                    // {loader:"image-webpack-loader",options:{
+                test:/\.(png|svg|jpg|jpeg|gif)$/i,
+                type:'asset/resource'
+               
+            },
+            {
+                test:/\.(woff|woff2|eot|ttf|otf)$/i,
+                type:'asset/resource'
 
-                    // }}
-                ]
-            }
+            },
+            {
+                        test:/\.css$/,
+                        use:[
+                            {
+                                loader:"style-loader"
+                            },
+                            {
+                                loader:"css-loader"
+                            }
+                        ]
+                    }
         ]
 
 
